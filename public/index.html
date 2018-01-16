@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>MFU@ IT School Smart Dispay</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/app.js"></script>
+
+<script>
+        $(function(){
+            socket.on("changeV",function(data){
+                var vdoid = data.msg;
+                var vdourl = "https://www.youtube.com/embed/";
+                vdourl += vdoid + "?autoplay=1&loop=1";
+                $("#youplay").attr("src",vdourl);
+            });
+        });
+    </script>
+
+
+
+</head>
+
+<body>
+  <div id="screen_panel">
+      <div id="vdo_panel">
+        <!-- panel for vdo iframe-->
+        <iframe id="youplay" src="https://www.youtube.com/embed?listType=playlist&list=PLBKXhybA55bOQGF2q9wN7FiwRHdW19Itf&autoplay=1&loop=1">
+        </iframe>
+      </div>
+    </div>
+
+
+</body>
+
+</html>

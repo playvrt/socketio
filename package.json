@@ -1,0 +1,19 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "socket trainig",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket.io"
+  ],
+  "author": "Weed",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "ip": "^1.1.5",
+    "socket.io": "^2.0.4"
+  }
+}

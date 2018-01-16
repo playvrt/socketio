@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MFU@ IT School Smart Dispay</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        $(function () {
+            $("#sayhiBtn").click(function () {
+                var data = $("#inp").val();
+                console.log(data);
+                socket.emit("sayhi", {
+                    msg: data
+                });
+
+            });
+
+            $("#changeBtn").click(function () {
+                var data = $("#inp").val();
+                console.log(data);
+                socket.emit("changeVDO", {
+                    msg: data
+                });
+
+            });
+             $("#inp1").click(function () {
+                var data = $("#inp1").val();
+                console.log(data);
+                socket.emit("changeVDO", {
+                    msg: data
+                });
+
+            });
+             $("#inp2").click(function () {
+                var data = $("#inp2").val();
+                console.log(data);
+                socket.emit("changeVDO", {
+                    msg: data
+                });
+
+            });
+             $("#inp3").click(function () {
+                var data = $("#inp").val();
+                console.log(data);
+                socket.emit("changeVDO", {
+                    msg: data
+                });
+
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="inp" value="hi" />
+    <button id="sayhiBtn">Say Hi</button>
+    <button id="changeBtn">Change VDO</button>
+
+
+    <button type="text" id="inp1" value="C2z_zupG5yQ"> Video 1</button>
+    <br>
+    <button type="text" id="inp2" value="t94vmNGDXds"> Video 2</button>
+    <br>
+    <button type="text" id="inp3" value="6tz1_znrbmc"> Video 3</button>
+
+</body>
+
+</html>

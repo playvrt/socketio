@@ -1,0 +1,106 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div{
+  /*border: 1px solid #ffbf00;*/
+}
+#screen_panel{
+  width: 100%;
+  height: 100%;
+
+}
+#top_bar_img, #bottom_bar_img{
+ width: 100%;
+}
+
+#content_panel{
+  position: absolute;
+  width: 100%;
+  height: 64%;
+    /*padding: 2px;*/
+    border-top: 4px solid #ffbf00;
+}
+
+#side_panel{
+  float: left;
+  width: 37.5%;
+  height: 100%;
+
+}
+
+#side_panel div{
+  height: 100%;
+}
+
+#side_panel img{
+  height: 100%;
+  width: 100%;
+}
+
+
+#vdo_panel{
+  float:right;
+  width:  62.5%;
+  height: 100%;
+  /*padding-left: 2px;*/
+  border-left: 4px solid #ffbf00;
+}
+
+#youplay{
+ width: 100%;
+ height: 100%;
+ border: 0;
+}
+
+
+#footer_bar{
+  position: fixed;
+  display: block;
+  bottom:0;
+  left: 0;
+
+  clear: both;
+  width: 100%;
+  
+}
+
+#bottom_bar_img{
+
+  border-top: 4px solid #ffbf00;
+}
+#logo_panel{
+  position: fixed;
+  display: block;
+
+  bottom: 15%;
+  right: -10px;
+  width: 15%;
+  z-index: 10;
+}
+#logo_img{
+  width:100%;
+  
+}
+
+#stattbl{
+  margin-left: 10%;
+  margin-top: 10%;
+  width: 80%;
+  text-align: center;
+  font-size: 2em;
+  line-height: 2em;
+}
+
+#counter{
+  background-color: rgba(0,255,0,0.5);
+}
+#remain{
+  background-color: rgba(255,0,0,0.5);
+}
