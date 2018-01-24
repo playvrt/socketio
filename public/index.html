@@ -22,6 +22,15 @@
                 $("#youplay").attr("src",vdourl);
             });
         });
+
+        $(function(){
+            socket.on("changeT",function(data){
+                var temid = data.msg;
+                
+                $("#screen_panel").load(temid)
+            });
+        });
+      
     </script>
 
 

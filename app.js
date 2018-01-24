@@ -23,6 +23,10 @@ io.sockets.on('connection', function(sk){
         console.log('Change VDO : ' + data.msg);
         io.sockets.emit("changeV", data);
     })
+    sk.on('changeTemplate', function(data){
+        console.log('Change Template : ' + data.msg);
+        io.sockets.emit("changeT", data);
+    })
 
 })
 
@@ -32,3 +36,6 @@ var ip = require("ip")
 server.listen(80, function () {
     console.log('Smart display start andd access on http: ' + ip.address() + ':80!')
 })
+function newFunction() {
+    return "changeT";
+}

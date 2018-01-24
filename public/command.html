@@ -57,6 +57,18 @@
 
             });
 
+            $("#tem").click(function () {
+                var data = $("#tem").val();
+                console.log(data);
+                socket.emit("changeTemplate", {
+                    msg: data
+                });
+
+            });
+
+
+
+
         });
     </script>
 </head>
@@ -72,6 +84,8 @@
     <button type="text" id="inp2" value="t94vmNGDXds"> Video 2</button>
     <br>
     <button type="text" id="inp3" value="6tz1_znrbmc"> Video 3</button>
+    <br>
+    <button type="text" id="tem" value="jqueryTest.html"> Template 1</button>
 
 </body>
 
