@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MFU@ IT School Smart Display</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        $(function () {
+            socket.on("changeV", function (data) {
+                var vdoid = data.msg;
+                var vdourl = "https://www.youtube.com/embed/";
+                vdourl += vdoid + "?autoplay=1&loop=1";
+                $("#youplay").attr("src", vdourl);
+            });
+        });
+
+        $(function () {
+            socket.on("changeT", function (data) {
+                var temid = data.msg;
+
+                $("#screen_panel").load(temid)
+            });
+        });
+
+    </script>
+
+
+
+</head>
+
+<body>
+    <div id="screen_panel">
+        
+    </div>
+
+
+</body>
+
+</html>

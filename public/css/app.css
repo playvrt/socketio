@@ -1,81 +1,105 @@
-html, body{
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-div{
+div {
   /*border: 1px solid #ffbf00;*/
 }
-#screen_panel{
+#screen_panel {
   width: 100%;
   height: 100%;
-
-}
-#top_bar_img, #bottom_bar_img{
- width: 100%;
+  background-color: black;
 }
 
-#content_panel{
+#top_bar_img,
+#bottom_bar_img {
+  width: 100%;
+}
+
+#content_panel {
   position: absolute;
   width: 100%;
   height: 64%;
-    /*padding: 2px;*/
-    border-top: 4px solid #ffbf00;
+  /*padding: 2px;*/
+  border-top: 4px solid #ffbf00;
+}
+#content_panel2 {
+  position: absolute;
+  width: 100%;
+  height: 74%;
+  /*padding: 2px;*/
+  border-top: 4px solid #ffbf00;
 }
 
-#side_panel{
+#side_panel {
   float: left;
   width: 37.5%;
   height: 100%;
-
 }
-
-#side_panel div{
+#side_panel2 {
+  float: left;
+  width: 26%;
   height: 100%;
 }
 
-#side_panel img{
+#side_panel div {
+  height: 100%;
+}
+
+#side_panel img {
   height: 100%;
   width: 100%;
 }
 
-
-#vdo_panel{
-  float:right;
-  width:  62.5%;
+#vdo_panel {
+  float: right;
+  width: 62.5%;
+  height: 100%;
+  /*padding-left: 2px;*/
+  border-left: 4px solid #ffbf00;
+}
+#vdo_panel2 {
+  float: right;
+  width: 74%;
+  height: 100%;
+  /*padding-left: 2px;*/
+  border-left: 4px solid #ffbf00;
+}
+#vdo_panel3 {
+  float: center;
+  width: 74%;
   height: 100%;
   /*padding-left: 2px;*/
   border-left: 4px solid #ffbf00;
 }
 
-#youplay{
- width: 100%;
- height: 100%;
- border: 0;
+#youplay {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-
-#footer_bar{
+#footer_bar {
   position: fixed;
   display: block;
-  bottom:0;
+  bottom: 0;
   left: 0;
 
   clear: both;
   width: 100%;
-  
 }
 
-#bottom_bar_img{
-
+#bottom_bar_img {
   border-top: 4px solid #ffbf00;
 }
-#logo_panel{
+#logo_panel {
   position: fixed;
   display: block;
 
@@ -84,12 +108,11 @@ div{
   width: 15%;
   z-index: 10;
 }
-#logo_img{
-  width:100%;
-  
+#logo_img {
+  width: 100%;
 }
 
-#stattbl{
+#stattbl {
   margin-left: 10%;
   margin-top: 10%;
   width: 80%;
@@ -98,9 +121,34 @@ div{
   line-height: 2em;
 }
 
-#counter{
-  background-color: rgba(0,255,0,0.5);
+#counter {
+  background-color: rgba(0, 255, 0, 0.5);
 }
-#remain{
-  background-color: rgba(255,0,0,0.5);
+#remain {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+#blank_lside {
+  float: left;
+  width: 10%;
+  height: 100%;
+  background-color: yellow;
+}
+#blank_rside {
+  float: right;
+  width: 10%;
+  height: 100%;
+  background-color: yellow;
+}
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
