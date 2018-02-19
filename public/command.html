@@ -66,8 +66,26 @@
 
             });
 
-            $("#chane1").click(function () {
-                var data = $("#chane1").val();
+            $("#change1").click(function () {
+                var data = $("#change1").val();
+                console.log(data);
+                socket.emit("changeDiv", {
+                    msg: data
+                });
+
+            });
+
+            $("#change2").click(function () {
+                var data = $("#change2").val();
+                console.log(data);
+                socket.emit("changeDiv", {
+                    msg: data
+                });
+
+            });
+
+            $("#change3").click(function () {
+                var data = $("#change3").val();
                 console.log(data);
                 socket.emit("changeDiv", {
                     msg: data
@@ -96,7 +114,12 @@
     <br>
     <button type="text" id="tem" value="jqueryTest.html"> Template 1</button>
     <br>
-    <button type="text" id="chane1" value="but1" > change 1</button>
+    <button type="text" id="change1" value="1" > change 1</button>
+    <br>
+    <button type="text" id="change2" value="2" > change 2</button>
+    <br>
+    <button type="text" id="change3" value="3" > change 2</button>
+
 
 </body>
 
