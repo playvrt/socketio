@@ -66,6 +66,15 @@
 
             });
 
+            $("#chane1").click(function () {
+                var data = $("#chane1").val();
+                console.log(data);
+                socket.emit("changeDiv", {
+                    msg: data
+                });
+
+            });
+
 
 
 
@@ -86,6 +95,8 @@
     <button type="text" id="inp3" value="6tz1_znrbmc"> Video 3</button>
     <br>
     <button type="text" id="tem" value="jqueryTest.html"> Template 1</button>
+    <br>
+    <button type="text" id="chane1" value="but1" > change 1</button>
 
 </body>
 

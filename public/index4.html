@@ -13,7 +13,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>\
-
+    
 
 
 
@@ -41,27 +41,26 @@
                 var changid = data.msg;
 
                 //$("#screen_panel").load(changid)
-                // if (changid == 1) {
-                //  $("#screen_panel").html(" <img id="bottom_bar_img" src="images / bottom_bar.png" />");
-                //  $("#footer_bar").html("<img id="top_bar_img" src="images / top_bar_w2400xh170px.png" />")
-                // }
+               // if (changid == 1) {
+                  //  $("#screen_panel").html(" <img id="bottom_bar_img" src="images / bottom_bar.png" />");
+                  //  $("#footer_bar").html("<img id="top_bar_img" src="images / top_bar_w2400xh170px.png" />")
+               // }
             });
         });
 
         $(document).ready(function () {
             $("#ss").click(function () {
-
-                //  $("#footer_bar").html(' <img id=" + "top_bar_img" + "src="+"images / top_bar_w2400xh170px.png"+" /> ')
-                //    $("#footer_bar").html(' <img id="bottom_bar_img" src="images/bottom_bar2.png" /> ')
-                $("#vdo_panel").css({ "float": "center", "width": "100%" , "height" : "200%"," border-left": " border-left", });
+         
+              //  $("#footer_bar").html(' <img id=" + "top_bar_img" + "src="+"images / top_bar_w2400xh170px.png"+" /> ')
+            //    $("#footer_bar").html(' <img id="bottom_bar_img" src="images/bottom_bar2.png" /> ')
                 $("#top_bar").hide();
                 $("#side_panel").hide();
                 $("#footer_bar").hide();
-
-
+             
+               
             });
         });
-
+       
     </script>
 
 
@@ -69,14 +68,14 @@
 </head>
 
 <body>
-
+    
     <div id="screen_panel">
         <div id="top_bar">
             <img id="top_bar_img" src="images/top_bar_w2400xh170px.png" />
-
+           
         </div>
-        <div id="content_panel">
-            <div id="side_panel">
+        <div id="content_panel2">
+            <div id="side_panel2">
                 <!-- panel for poster-->
                 <div id="myCarousel" class="carousel slide smallpad" data-ride="carousel">
                     <!-- Indicators -->
@@ -99,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <div id="vdo_panel">
+            <div id="vdo_panel2">
                 <!-- panel for vdo iframe-->
 
                 <iframe id="youplay" src="https://www.youtube.com/embed?listType=playlist&list=PLBKXhybA55bOQGF2q9wN7FiwRHdW19Itf&autoplay=1&loop=1">

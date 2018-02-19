@@ -27,6 +27,12 @@ io.sockets.on('connection', function(sk){
         console.log('Change Template : ' + data.msg);
         io.sockets.emit("changeT", data);
     })
+    sk.on('changeDiv', function(data){
+        console.log('Change Div : ' + data.msg);
+        io.sockets.emit("changeD", data);
+    })
+
+    
 
 })
 
