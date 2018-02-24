@@ -44,8 +44,8 @@ div {
   height: 100%;
 }
 #side_panel2 {
-  float: left;
-  width: 26%;
+  float: center;
+  width: 100%;
   height: 100%;
 }
 

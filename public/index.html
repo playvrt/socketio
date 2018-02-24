@@ -51,6 +51,7 @@
                 $("#top_bar").show();
                 $("#footer_bar").show();
                 $("#side_panel").hide(); 
+                $("#vdo_panel").show();
                 $("#vdo_panel").css({ "float": "center", "width": "100%" , "height" : "100%" });     
                }
 
@@ -58,7 +59,15 @@
                 $("#top_bar").show();
                 $("#footer_bar").show();
                 $("#side_panel").show(); 
-                $("#vdo_panel").hide();
+ 
+               }
+               if (changid == 4) {
+                $("#top_bar").hide();
+                $("#footer_bar").show();
+                $("#side_panel").show(); 
+                $("#vdo_panel").show();
+                $("#vdo_panel").css({ "float": "center", "width": "100%" , "height" : "100%" });
+                $("#footer_bar").css({ "float": "center", "width": "100%" , "height" : "100%" });
                }
                
 
@@ -69,8 +78,8 @@
         $(document).ready(function () {
             $("#ss").click(function () {
 
-                //  $("#footer_bar").html(' <img id=" + "top_bar_img" + "src="+"images / top_bar_w2400xh170px.png"+" /> ')
-                //    $("#footer_bar").html(' <img id="bottom_bar_img" src="images/bottom_bar2.png" /> ')
+                  $("#footer_bar").html(' <img id=" + "top_bar_img" + "src="+"images / top_bar_w2400xh170px.png"+" /> ')
+                    $("#footer_bar").html(' <img id="bottom_bar_img" src="images/bottom_bar2.png" /> ')
                 $("#vdo_panel").css({ "float": "center", "width": "100%" , "height" : "180%" });
                 $("#top_bar").hide();
                 $("#side_panel").hide();
@@ -117,6 +126,9 @@
                     </div>
                 </div>
             </div>
+        
+        
+            
             <div id="vdo_panel">
                 <!-- panel for vdo iframe-->
 
@@ -125,10 +137,12 @@
 
             </div>
         </div>
+       
         <div id="footer_bar">
             <!-- foter -->
             <img id="bottom_bar_img" src="images/bottom_bar.png" />
         </div>
+        
     </div>
 
     <div id="logo_panel">
