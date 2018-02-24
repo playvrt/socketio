@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>MFU@ IT School Smart Dispay</title>
+    <title>MFU@ IT School Smart Display Command</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
     <link rel="stylesheet" href="lib/bootstrap.min.css">
@@ -32,7 +32,7 @@
                 });
 
             });
-             $("#inp1").click(function () {
+            $("#inp1").click(function () {
                 var data = $("#inp1").val();
                 console.log(data);
                 socket.emit("changeVDO", {
@@ -40,7 +40,7 @@
                 });
 
             });
-             $("#inp2").click(function () {
+            $("#inp2").click(function () {
                 var data = $("#inp2").val();
                 console.log(data);
                 socket.emit("changeVDO", {
@@ -48,7 +48,7 @@
                 });
 
             });
-             $("#inp3").click(function () {
+            $("#inp3").click(function () {
                 var data = $("#inp").val();
                 console.log(data);
                 socket.emit("changeVDO", {
@@ -93,7 +93,14 @@
 
             });
 
+            $("#change4").click(function () {
+                var data = $("#change4").val();
+                console.log(data);
+                socket.emit("changeDiv", {
+                    msg: data
+                });
 
+            });
 
 
         });
@@ -101,31 +108,32 @@
 </head>
 
 <body>
-    <input type="text" id="inp" value="hi" />
-    <button id="sayhiBtn">Say Hi</button>
+    <input type="text" id="inp" placeholder="Enter VDO code here!" />
+
     <button id="changeBtn">Change VDO</button>
 
-
+    <br>
     <button type="text" id="inp1" value="C2z_zupG5yQ"> Video 1</button>
     <br>
     <button type="text" id="inp2" value="t94vmNGDXds"> Video 2</button>
     <br>
     <button type="text" id="inp3" value="6tz1_znrbmc"> Video 3</button>
+    <!-- <br>
+    <button type="text" id="tem" value="jqueryTest.html"> Template 1</button> -->
     <br>
-    <button type="text" id="tem" value="jqueryTest.html"> Template 1</button>
+    <button type="text" id="change1" value="1">Template 1</button>
     <br>
-    <button type="text" id="change1" value="1" > change 1</button>
+    <button type="text" id="change2" value="2">Template 2</button>
     <br>
-    <button type="text" id="change2" value="2" > change 2</button>
+    <button type="text" id="change3" value="3">Template 3(test)</button>
     <br>
-    <button type="text" id="change3" value="3" > change 2</button>
+    <button type="text" id="change4" value="4">Default template</button>
 
-
-
+    <br>
     <iframe src="http://localhost/index.html">
         <p>Your browser does not support iframes.</p>
-      </iframe>
-      
+    </iframe>
+
 
 
 </body>

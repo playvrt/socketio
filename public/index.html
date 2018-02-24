@@ -41,7 +41,7 @@
                 var changid = data.msg;
                
                 if (changid == 1) {
-                $("#vdo_panel").css({ "float": "center", "width": "100%" , "height" : "180%" });
+                $("#vdo_panel").css({ "border": "8px solid #ffbf00", "width": "100%" , "height" : "155%" });
                 $("#top_bar").hide();
                 $("#side_panel").hide();
                 $("#footer_bar").hide();
@@ -52,7 +52,7 @@
                 $("#footer_bar").show();
                 $("#side_panel").hide(); 
                 $("#vdo_panel").show();
-                $("#vdo_panel").css({ "float": "center", "width": "100%" , "height" : "100%" });     
+                $("#vdo_panel").css({ "border": "4px solid #ffbf00", "width": "100%" , "height" : "100%" });     
                }
 
                if (changid == 3) {
@@ -61,7 +61,15 @@
                 $("#side_panel").show(); 
  
                }
+
+               //default template
                if (changid == 4) {
+                $("#top_bar").show();
+                $("#footer_bar").show();
+                $("#side_panel").show(); 
+                $("#vdo_panel").css({ "border": "0px", "width": "62.5%" , "height" : "100%", "border-left": "4px solid #ffbf00" });
+               }
+               if (changid == 5) {
                 $("#top_bar").hide();
                 $("#footer_bar").show();
                 $("#side_panel").show(); 
@@ -139,7 +147,7 @@
         </div>
        
         <div id="footer_bar">
-            <!-- foter -->
+            <!-- footer -->
             <img id="bottom_bar_img" src="images/bottom_bar.png" />
         </div>
         
@@ -147,7 +155,7 @@
 
     <div id="logo_panel">
         <img id="logo_img" src="images/logo.png" />
-        <button id="ss">Change content of all p elements</button>
+        
     </div>
 
 </body>
