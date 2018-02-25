@@ -39,56 +39,56 @@
         $(function () {
             socket.on("changeD", function (data) {
                 var changid = data.msg;
-               
+
                 if (changid == 1) {
-                $("#vdo_panel").css({ "border": "8px solid #ffbf00", "width": "100%" , "height" : "155%" });
-                $("#top_bar").hide();
-                $("#side_panel").hide();
-                $("#footer_bar").hide();
-               }
+                    $("#vdo_panel").css({ "border": "8px solid #ffbf00", "width": "100%", "height": "155%" });
+                    $("#top_bar").hide();
+                    $("#side_panel").hide();
+                    $("#footer_bar").hide();
+                }
 
-               if (changid == 2) {
-                $("#top_bar").show();
-                $("#footer_bar").show();
-                $("#side_panel").hide(); 
-                $("#vdo_panel").show();
-                $("#vdo_panel").css({ "border": "4px solid #ffbf00", "width": "100%" , "height" : "100%" });     
-               }
+                if (changid == 2) {
+                    $("#top_bar").show();
+                    $("#footer_bar").show();
+                    $("#side_panel").hide();
+                    $("#vdo_panel").show();
+                    $("#vdo_panel").css({ "border": "4px solid #ffbf00", "width": "100%", "height": "100%" });
+                }
 
-               if (changid == 3) {
-                $("#top_bar").show();
-                $("#footer_bar").show();
-                $("#side_panel").show(); 
- 
-               }
+                if (changid == 3) {
+                    $("#top_bar").show();
+                    $("#footer_bar").show();
+                    $("#side_panel").show();
 
-               //default template
-               if (changid == 4) {
-                $("#top_bar").show();
-                $("#footer_bar").show();
-                $("#side_panel").show(); 
-                $("#vdo_panel").css({ "border": "0px", "width": "62.5%" , "height" : "100%", "border-left": "4px solid #ffbf00" });
-               }
-               if (changid == 5) {
-                $("#top_bar").hide();
-                $("#footer_bar").show();
-                $("#side_panel").show(); 
-                $("#vdo_panel").show();
-                $("#vdo_panel").css({ "float": "center", "width": "100%" , "height" : "100%" });
-                $("#footer_bar").css({ "float": "center", "width": "100%" , "height" : "100%" });
-               }
-               
+                }
 
-               
+                //default template
+                if (changid == 4) {
+                    $("#top_bar").show();
+                    $("#footer_bar").show();
+                    $("#side_panel").show();
+                    $("#vdo_panel").css({ "border": "0px", "width": "62.5%", "height": "100%", "border-left": "4px solid #ffbf00" });
+                }
+                if (changid == 5) {
+                    $("#top_bar").hide();
+                    $("#footer_bar").show();
+                    $("#side_panel").show();
+                    $("#vdo_panel").show();
+                    $("#vdo_panel").css({ "float": "center", "width": "100%", "height": "100%" });
+                    $("#footer_bar").css({ "float": "center", "width": "100%", "height": "100%" });
+                }
+
+
+
             });
         });
 
         $(document).ready(function () {
             $("#ss").click(function () {
 
-                  $("#footer_bar").html(' <img id=" + "top_bar_img" + "src="+"images / top_bar_w2400xh170px.png"+" /> ')
-                    $("#footer_bar").html(' <img id="bottom_bar_img" src="images/bottom_bar2.png" /> ')
-                $("#vdo_panel").css({ "float": "center", "width": "100%" , "height" : "180%" });
+                $("#footer_bar").html(' <img id=" + "top_bar_img" + "src="+"images / top_bar_w2400xh170px.png"+" /> ')
+                $("#footer_bar").html(' <img id="bottom_bar_img" src="images/bottom_bar2.png" /> ')
+                $("#vdo_panel").css({ "float": "center", "width": "100%", "height": "180%" });
                 $("#top_bar").hide();
                 $("#side_panel").hide();
                 $("#footer_bar").hide();
@@ -134,9 +134,9 @@
                     </div>
                 </div>
             </div>
-        
-        
-            
+
+
+
             <div id="vdo_panel">
                 <!-- panel for vdo iframe-->
 
@@ -144,20 +144,55 @@
                 </iframe>
 
             </div>
+            <div id="side_panel">
+                <!-- panel for poster-->
+                <div id="myCarousel" class="carousel slide smallpad" data-ride="carousel">
+                    <!-- Indicators -->
+                    <!--<ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="4"></li>
+                    </ol>-->
+    
+                    <!-- Wrapper for slides -->
+                    <div id="itemgroup" class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="poster/poster01.png" alt="Image">
+                        </div>
+    
+                        <div class="item">
+                            <img src="poster/poster02.png" alt="Image">
+                        </div>
+    
+    
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+            <div id="vdo_panel">
+                <!-- panel for vdo iframe-->
+    
+                <iframe id="youplay" src="https://www.youtube.com/embed?listType=playlist&list=PLBKXhybA55bOQGF2q9wN7FiwRHdW19Itf&autoplay=1&loop=1">
+                </iframe>
+    
+            </div>
         </div>
-       
+
         <div id="footer_bar">
             <!-- footer -->
             <img id="bottom_bar_img" src="images/bottom_bar.png" />
         </div>
-        
+
     </div>
 
     <div id="logo_panel">
         <img id="logo_img" src="images/logo.png" />
-        
-    </div>
 
+    </div>
+   
+      
+   
 </body>
 
 </html>
