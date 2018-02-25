@@ -37,6 +37,9 @@
 
 
         $(function () {
+
+            $("#side_panel3").hide();
+            $("#vdo_panel4").hide();
             socket.on("changeD", function (data) {
                 var changid = data.msg;
 
@@ -144,7 +147,9 @@
                 </iframe>
 
             </div>
-            <div id="side_panel">
+
+
+            <div id="side_panel3">
                 <!-- panel for poster-->
                 <div id="myCarousel" class="carousel slide smallpad" data-ride="carousel">
                     <!-- Indicators -->
@@ -170,10 +175,10 @@
     
     
     
-            <div id="vdo_panel">
+            <div id="vdo_panel4">
                 <!-- panel for vdo iframe-->
     
-                <iframe id="youplay" src="https://www.youtube.com/embed?listType=playlist&list=PLBKXhybA55bOQGF2q9wN7FiwRHdW19Itf&autoplay=1&loop=1">
+                <iframe id="youplay" src="https://www.youtube.com/embed?listType=playlist&list=PLBKXhybA55bOQGF2q9wN7FiwRHdW19Itf&autoplay=0&loop=1">
                 </iframe>
     
             </div>

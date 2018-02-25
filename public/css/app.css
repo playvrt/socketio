@@ -43,6 +43,12 @@ div {
   width: 37.5%;
   height: 100%;
 }
+#side_panel3 {
+  float: left;
+  width: 37.5%;
+  height: 100%;
+}
+
 #side_panel2 {
   float: center;
   width: 100%;
@@ -54,6 +60,14 @@ div {
 }
 
 #side_panel img {
+  height: 100%;
+  width: 100%;
+}
+#side_panel3 div {
+  height: 100%;
+}
+
+#side_panel3 img {
   height: 100%;
   width: 100%;
 }
