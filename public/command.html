@@ -108,34 +108,37 @@
 </head>
 
 <body>
-    <input type="text" id="inp" placeholder="Enter VDO code here!" />
+    <style>
+    body {background-color: rgb(238, 252, 251);}
+    body {text-align: center;}
+    </style>
 
-    <button id="changeBtn">Change VDO</button>
+    <h4>Command</h4>
+    <input type="text" id="inp" placeholder="Enter VDO code here!"/>
+    <button id="changeBtn" class="btn btn-info">Change VDO</button>
 
-    <br>
-    <button type="text" id="inp1" value="C2z_zupG5yQ"> Video 1</button>
-    <br>
-    <button type="text" id="inp2" value="t94vmNGDXds"> Video 2</button>
-    <br>
-    <button type="text" id="inp3" value="6tz1_znrbmc"> Video 3</button>
+    <br></br>
+    <div class="btn-group">
+    <button type="text" id="inp1" value="C2z_zupG5yQ" class="btn btn-primary"> Video 1</button>
+    <button type="text" id="inp2" value="t94vmNGDXds" class="btn btn-primary"> Video 2</button>
+    <button type="text" id="inp3" value="6tz1_znrbmc"class="btn btn-primary"> Video 3</button>
+    </div>
     <!-- <br>
     <button type="text" id="tem" value="jqueryTest.html"> Template 1</button> -->
-    <br>
-    <button type="text" id="change1" value="1">Template 1</button>
-    <br>
-    <button type="text" id="change2" value="2">Template 2</button>
-    <br>
-    <button type="text" id="change3" value="3">Template 3(test)</button>
-    <br>
-    <button type="text" id="change4" value="4">Default template</button>
+    <br></br>
+    <div class="btn-group">
+    <button type="text" id="change1" value="1" class="btn btn-success">Template 1</button>
+    <button type="text" id="change2" value="2" class="btn btn-success">Template 2</button>
+    </div>
+    <br></br>
+    <button type="text" id="change3" value="3" class="btn btn-warning">Template 3(test)</button>
+    <br></br>
+    <button type="text" id="change4" value="4" class="btn btn-danger">Default template</button>
 
-    <br>
+    <br></br>
     <iframe src="http://localhost/index.html">
         <p>Your browser does not support iframes.</p>
     </iframe>
 
-
-
 </body>
-
 </html>
