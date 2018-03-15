@@ -111,8 +111,9 @@
     <style>
     body {background-color: rgb(238, 252, 251);}
     body {text-align: center;}
+    .container { position: relative; width: 480px; height: 280px; float: left; margin-left: 10px;}
+    .checkbox { position: absolute; bottom: 0px; right: 0px; }
     </style>
-
 
     <h3>Command</h3>
     <br></br>
@@ -141,42 +142,59 @@
     <button type="text" id="change4" value="4" class="btn btn-danger">Default template</button>
 
     <br></br>
-    
-    <iframe name="iframe1" src="http://localhost/index.html" width="25%" height="30%">
+    <div class="container">
+    <iframe name="iframe1" src="http://localhost/index.html" width="100%" height="80%">
         <p>Your browser does not support iframes.</p>
     </iframe>
-
-    <iframe name="iframe2" src="http://localhost/index.html" width="25%" height="30%">
-        <p>Your browser does not support iframes.</p>
-    </iframe>
-   
-    <iframe name="iframe3" src="http://localhost/index.html" width="25%" height="30%">
-        <p>Your browser does not support iframes.</p>
-    </iframe>
-
     <br></br>
     <label class="checkbox-inline"><input type="checkbox" value="">Screen 1</label>
+    </div>
+
+    <div class="container">
+    <iframe name="iframe2" src="http://localhost/index.html" width="100%" height="80%">
+        <p>Your browser does not support iframes.</p>
+    </iframe>
+    <br></br>
     <label class="checkbox-inline"><input type="checkbox" value="">Screen 2</label>
-    <label class="checkbox-inline"><input type="checkbox" value="">Screen 3</label>
+    </div>
+
+    <div class="container">
+        <iframe name="iframe3" src="http://localhost/index.html" width="100%" height="80%">
+            <p>Your browser does not support iframes.</p>
+        </iframe>
+        <br></br>
+        <label class="checkbox-inline"><input type="checkbox" value="">Screen 3</label>
+        </div>
 
     <br></br>
-    <iframe name="iframe4" src="http://localhost/index.html" width="25%" height="30%">
-        <p>Your browser does not support iframes.</p>
-    </iframe>
 
-    <iframe name="iframe5" src="http://localhost/index.html" width="25%" height="30%">
+    <div class="container">
+    <iframe name="iframe4" src="http://localhost/index.html" width="100%" height="80%">
         <p>Your browser does not support iframes.</p>
     </iframe>
-
-    <iframe name="iframe6" src="http://localhost/index.html" width="25%" height="30%">
-        <p>Your browser does not support iframes.</p>
-    </iframe>
-    
     <br></br>
     <label class="checkbox-inline"><input type="checkbox" value="">Screen 4</label>
-    <label class="checkbox-inline"><input type="checkbox" value="">Screen 5</label>
-    <label class="checkbox-inline"><input type="checkbox" value="">Screen 6</label>
+    </div>
+   
 
+    <div class="container">
+    <iframe name="iframe5" src="http://localhost/index.html" width="100%" height="80%">
+    <p>Your browser does not support iframes.</p>
+    </iframe>
     <br></br>
+    <label class="checkbox-inline"><input type="checkbox" value="">Screen 5</label>
+    </div>
+
+   
+    <div class="container">
+    <iframe name="iframe6" src="http://localhost/index.html" width="100%" height="80%">
+    <p>Your browser does not support iframes.</p>
+    </iframe>
+    <br></br>
+    <label class="checkbox-inline"><input type="checkbox" value="">Screen 6</label>
+    </div>
+    <br></br>
+
+
 </body>
 </html>
