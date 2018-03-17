@@ -31,6 +31,28 @@
             });
         });
 
+        $(function () {
+            $("#getclinet").click(function () {
+               
+                var data = $("#getclinet").val();
+                console.log(data);
+                socket.emit("imIn", {
+                    msg: data
+                });
+            });
+        });
+
+    </script>
+    <!-- ตรงนี้ -->
+    <script>
+            $(function () {
+                socket.on("getClinetId", function(data) {
+                    var newclientId = data.clientId;
+                    console.log(newclientId);
+                    localStorage.setItem("clientId","1");
+                });
+            });
+
     </script>
 
 
@@ -38,11 +60,19 @@
 </head>
 
 <body>
-    <div id="screen_panel">
-        
-    </div>
 
-
+    <button type="text" id="getclinet" value="1" class="btn btn-primary">Clink ME </button>
+    <script>
+            // Check browser support
+            if (typeof(Storage) !== "undefined") {
+                // Store
+                localStorage.setItem("lastname", "1");
+                // Retrieve
+                document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+            </script>
 </body>
 
 </html>

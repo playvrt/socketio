@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>MFU@ IT School Smart Display</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        <link rel="stylesheet" href="css/app.css">
+    
+        <script src="lib/jquery.min.js"></script>
+        <script src="lib/bootstrap.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/app.js"></script>
+        <script>   
+         $(function () {
+            $("#getclinet").click(function () {
+               
+                var data = $("#getclinet").val();
+                console.log(data);
+                socket.emit("imIn", {
+                    msg: data
+                });
+            });
+        });
+
+         $(function () {
+                socket.on("getClinetId", function(data) {
+                    var newclientId = data.clientId;
+                    console.log(newclientId);
+                    localStorage.setItem("clientId",JSON.stringify(newclientId));
+                });
+            });
+        
+        </script> 
+</head>
+<body>
+
+<div id="result"></div>
+
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+    // Store
+   // localStorage.setItem("lastname", "Smith");
+    // Retrieve
+    document.getElementById("result").innerHTML = localStorage.getItem("clientId");
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+
+</body>
+<button type="text" id="getclinet" value="2" class="btn btn-primary">Clink ME </button>
+</html>
