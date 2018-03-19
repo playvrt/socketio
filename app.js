@@ -50,9 +50,11 @@ io.sockets.on('connection', function (sk) {
         clientCount++;
         console.log("sent back  " + clientInfo.clientId)
         io.sockets.emit("getClinetId", clientInfo)
-        clients.push(clientInfo);
+        clients.push(clientInfo.clientId);
         console.log(clients);
-        // var data = fs.writeFileSync('./files/file',clientin)
+        var data = fs.writeFile('./public/files/file',clientInfo.clientId,'utf8',function(error) {
+            if(error) throw error;
+        });
     })
 
 
