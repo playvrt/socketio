@@ -54,10 +54,12 @@ io.sockets.on('connection', function (sk) {
         clientCount++;
         console.log("sent back  " + clientInfo.clientId)
         io.sockets.emit("getClinetId", clientInfo)
-        clients.push(clientInfo.clientId);
+        clients.push(clientInfo);
         console.log(clients);
-
-
+       
+   //     firebaseRef.child("Text").set("clientInfo.clientId");
+        // var data = fs.writeFileSync('./files/file',clientin)
+    })
 
 
 
