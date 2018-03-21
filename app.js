@@ -4,6 +4,9 @@ var app = express()
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
+
+
+
 app.use(express.static('public'))
 app.get('/test', function (req, res) {
     res.send('Hello World!')
@@ -43,6 +46,7 @@ io.sockets.on('connection', function (sk) {
     var clientCount = 0;
     var clients = [];
     var clientInfo = { 'clientId': 0 }
+  //  var firebaseRef = firebase.database().ref();
     sk.on('imIn', function (data) {
 
 
@@ -52,6 +56,8 @@ io.sockets.on('connection', function (sk) {
         io.sockets.emit("getClinetId", clientInfo)
         clients.push(clientInfo);
         console.log(clients);
+       
+   //     firebaseRef.child("Text").set("clientInfo.clientId");
         // var data = fs.writeFileSync('./files/file',clientin)
     })
 

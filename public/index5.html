@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>MFU@ IT School Smart Display</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        <link rel="stylesheet" href="css/app.css">
+    
+        <script src="lib/jquery.min.js"></script>
+        <script src="lib/bootstrap.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/app.js"></script>
+        <script src="index.js"></script>
+       
+</head>
+<body>
+
+<div class="mainDiv" align="right">
+  <h1 align="left"> firebase web app</h1>
+  <textarea id="mainText" placeholder="EnterText Here..."></textarea>
+  <button id="submitBtn" onclick="submitClick()"></button>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBWOeAaM1W1X9b0WShkHKhxiUw9ecQPmtw",
+    authDomain: "fir-test-991bd.firebaseapp.com",
+    databaseURL: "https://fir-test-991bd.firebaseio.com",
+    projectId: "fir-test-991bd",
+    storageBucket: "",
+    messagingSenderId: "578537351299"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="index.js"></script>
+</body>
+
+</html>
+
