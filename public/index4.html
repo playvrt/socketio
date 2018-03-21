@@ -45,7 +45,7 @@
                 console.log(newclientId);
                 localStorage.setItem("clientId", JSON.stringify(newclientId));
                 var firebaseRef = firebase.database().ref();
-                firebaseRef.child("Text").set(newclientId);
+                firebaseRef.child("Client Id "+newclientId).set(newclientId);
             });
         });
 
