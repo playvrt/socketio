@@ -41,6 +41,14 @@ io.sockets.on('connection', function (sk) {
 
 
 
+    sk.on('sendCommand', function (msg2) {
+        // var commandInServ = JSON.parse(msg2);
+        console.log(msg2);
+        io.sockets.emit("serverCommand", msg2);
+    })
+
+
+
     //test Counter
 
     var clientCount = 0;

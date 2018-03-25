@@ -12,12 +12,46 @@
     <script src="lib/bootstrap.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/app.js"></script>
-     
+
 
 
 
 
     <script>
+
+        $(function () {
+            socket.on("serverCommand", function (msg2) {
+
+                if(msg2.command == "changeVideo") {
+                    var vdoid = msg2.data;
+                    var vdourl = "https://www.youtube.com/embed/";
+                    vdourl += vdoid + "?autoplay=1&loop=1";
+                    $("#youplay").attr("src", vdourl);
+                }
+
+
+
+
+
+               
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         $(function () {
             socket.on("changeV", function (data) {
                 var vdoid = data.msg;
@@ -26,6 +60,9 @@
                 $("#youplay").attr("src", vdourl);
             });
         });
+
+
+
 
         $(function () {
             socket.on("changeT", function (data) {
