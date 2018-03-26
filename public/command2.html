@@ -13,25 +13,44 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/app.js"></script>
     <script src="js/index.js"></script>
-
-
-
-
-
-
-
-
 </head>
 
 <body>
+    <div id="screen_panel">
+        <div style="padding: 3%; margin-bottom: 3%">
+            <div class="left">
+                <!-- // send video command -->
+                <form id="vidForm">
+                    <div class="form-group">
+                        <label for="vdoCode">VDO embeded code</label>
+                        <input type="hidden" name="command" id="command" value="changeVideo">
+                        <input class="form-control" type="text" id="data" placeholder="Enter VDO code">
+                    </div>
+                </form>
+                <button onclick="sendChangeVidCommand()" class="btn btn-primary">Change Video</button>
+            </div>
 
-    <form id="dataForm">
-        <input type="hidden" name="command" id="command" value="changeVideo">
-        <input type="hidden" id="data" value="j6yL6zrFhDM">
-    </form>
-    <button onclick="sendJson()">Video 5</button>
-
-  
+            <div class="right">
+                <!-- //send template command -->
+                <form id="temForm">
+                    <div class="form-group">
+                        <label for="templateId">Template</label>
+                        <input type="hidden" name="command" id="command" value="changeTemplate">
+                        <select id="data" class="form-control">
+                            <option value="1">Default (landscape)</option>
+                            <option value="2">Template 1 (landscape)</option>
+                            <option value="3">Template 2 (landscape)</option>
+                            <option value="4">Template 3 (landscape)</option>
+                            <option value="">Template 4 (portrait)</option>
+                            <option value="">Template 5 (portrait)</option>
+                        </select>
+                    </div>
+                </form>
+                <button onclick="sendChangeTemCommand()" class="btn btn-primary">Change Template</button>
+            </div>
+        </div>
+        
+    </div>
 </body>
 
 </html>
