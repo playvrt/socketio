@@ -16,52 +16,69 @@
     <script>
         $(function () {
             socket.on("serverCommand", function (msg2) {
+                // Check browser support
+                if (typeof (Storage) !== "undefined") {
+                    var client_id2 = localStorage.getItem("clientId");
+                    var group_id2 = localStorage.getItem("groupId");
+                    console.log("client id = "+client_id2);
+                    console.log("group id = "+group_id2);
+                    if (msg2.group_id == group_id2 || msg2.group_id == 0) {
+                        if (msg2.client_id == client_id2 || msg2.client_id == 0) {
+                            // Change Video Command
+                            if (msg2.command == "changeVideo") {
+                                var vdoid = msg2.data;
+                                var vdourl = "https://www.youtube.com/embed/";
+                                vdourl += vdoid + "?autoplay=1&loop=1";
+                                $("#youplay").attr("src", vdourl);
+                            }
 
-                // Change Video Command
-                if (msg2.command == "changeVideo") {
-                    var vdoid = msg2.data;
-                    var vdourl = "https://www.youtube.com/embed/";
-                    vdourl += vdoid + "?autoplay=1&loop=1";
-                    $("#youplay").attr("src", vdourl);
+                            // Change template Command
+                            if (msg2.command == "changeTemplate") {
+                                var temId = msg2.data;
+
+                                // Template 1
+                                if (temId == 2) {
+                                    $("#vdo_panel").css({ "border": "8px solid #ffbf00", "width": "100%", "height": "155%" });
+                                    $("#top_bar").hide();
+                                    $("#side_panel").hide();
+                                    $("#footer_bar").hide();
+                                }
+
+                                // Template 2
+                                if (temId == 3) {
+                                    $("#top_bar").show();
+                                    $("#footer_bar").show();
+                                    $("#side_panel").hide();
+                                    $("#vdo_panel").show();
+                                    $("#vdo_panel").css({ "border": "4px solid #ffbf00", "width": "100%", "height": "100%" });
+                                }
+
+                                // Template 3
+                                if (temId == 4) {
+                                    $("#top_bar").show();
+                                    $("#footer_bar").show();
+                                    $("#side_panel").show();
+
+                                }
+
+                                // default template
+                                if (temId == 1) {
+                                    $("#top_bar").show();
+                                    $("#footer_bar").show();
+                                    $("#side_panel").show();
+                                    $("#vdo_panel").css({ "border": "0px", "width": "62.5%", "height": "100%", "border-left": "4px solid #ffbf00" });
+                                }
+                            }
+                        }
+                    }
+
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
                 }
 
-                // Change template Command
-                if (msg2.command == "changeTemplate") {
-                    var temId = msg2.data;
 
-                    // Template 1
-                    if (temId == 2) {
-                        $("#vdo_panel").css({ "border": "8px solid #ffbf00", "width": "100%", "height": "155%" });
-                        $("#top_bar").hide();
-                        $("#side_panel").hide();
-                        $("#footer_bar").hide();
-                    }
 
-                    // Template 2
-                    if (temId == 3) {
-                        $("#top_bar").show();
-                        $("#footer_bar").show();
-                        $("#side_panel").hide();
-                        $("#vdo_panel").show();
-                        $("#vdo_panel").css({ "border": "4px solid #ffbf00", "width": "100%", "height": "100%" });
-                    }
 
-                    // Template 3
-                    if (temId == 4) {
-                        $("#top_bar").show();
-                        $("#footer_bar").show();
-                        $("#side_panel").show();
-
-                    }
-
-                    // default template
-                    if (temId == 1) {
-                        $("#top_bar").show();
-                        $("#footer_bar").show();
-                        $("#side_panel").show();
-                        $("#vdo_panel").css({ "border": "0px", "width": "62.5%", "height": "100%", "border-left": "4px solid #ffbf00" });
-                    }
-                }
             });
         });
 
@@ -94,7 +111,7 @@
             <div id="side_panel">
                 <!-- panel for poster-->
                 <div id="myCarousel" class="carousel slide smallpad" data-ride="carousel">
-                    
+
                     <!-- Wrapper for slides -->
                     <div id="itemgroup" class="carousel-inner" role="listbox">
                         <div class="item active">
@@ -115,7 +132,7 @@
                 <!-- panel for vdo iframe-->
                 <iframe id="youplay" src="https://www.youtube.com/embed?listType=playlist&list=PLBKXhybA55bOQGF2q9wN7FiwRHdW19Itf&autoplay=0&loop=1">
                 </iframe>
-            </div>                 
+            </div>
         </div>
 
         <!-- footer -->
@@ -132,4 +149,5 @@
     </div>
 
 </body>
+
 </html>

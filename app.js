@@ -22,51 +22,45 @@ io.sockets.on('connection', function (sk) {
     // console.log(sk);
     sk.emit('broadcast', { msg: 'Hi client!' });
 
-    sk.on('sayhi', function (data) {
-        console.log('Message incoming : ' + data.msg);
-    })
+    // sk.on('sayhi', function (data) {
+    //     console.log('Message incoming : ' + data.msg);
+    // })
 
-    sk.on('changeVDO', function (data) {
-        console.log('Change VDO : ' + data.msg);
-        io.sockets.emit("changeV", data);
-    })
-    sk.on('changeTemplate', function (data) {
-        console.log('Change Template : ' + data.msg);
-        io.sockets.emit("changeT", data);
-    })
-    sk.on('changeDiv', function (data) {
-        console.log('Change Div : ' + data.msg);
-        io.sockets.emit("changeD", data);
-    })
-
-
-
+    // sk.on('changeVDO', function (data) {
+    //     console.log('Change VDO : ' + data.msg);
+    //     io.sockets.emit("changeV", data);
+    // })
+    // sk.on('changeTemplate', function (data) {
+    //     console.log('Change Template : ' + data.msg);
+    //     io.sockets.emit("changeT", data);
+    // })
+    // sk.on('changeDiv', function (data) {
+    //     console.log('Change Div : ' + data.msg);
+    //     io.sockets.emit("changeD", data);
+    // })
     sk.on('sendCommand', function (msg2) {
         // var commandInServ = JSON.parse(msg2);
         console.log(msg2);
         io.sockets.emit("serverCommand", msg2);
     })
-
-
-
     //test Counter
-
     var clientCount = 0;
     var clients = [];
     var clientInfo = { 'clientId': 0 }
-  //  var firebaseRef = firebase.database().ref();
+    //  var firebaseRef = firebase.database().ref();
     sk.on('imIn', function (data) {
-
-
         clientInfo.clientId = clientCount + 1;
         clientCount++;
         console.log("sent back  " + clientInfo.clientId)
         io.sockets.emit("getClinetId", clientInfo)
         clients.push(clientInfo);
         console.log(clients);
-       
-   //     firebaseRef.child("Text").set("clientInfo.clientId");
+        //     firebaseRef.child("Text").set("clientInfo.clientId");
         // var data = fs.writeFileSync('./files/file',clientin)
+    })
+    sk.on('sendGroupId', function (data) {
+        console.log('Change VDO : ' + data.msg);
+        io.sockets.emit("getGroupId", data); 
     })
 
 
@@ -75,14 +69,12 @@ io.sockets.on('connection', function (sk) {
 
 
 var ip = require("ip")
-
 server.listen(80, function () {
     console.log('Smart display start andd access on http: ' + ip.address() + ':80!')
 })
 function newFunction() {
     return "changeT";
 }
-
 // var clientCount = 0;
 // var clinets = [];
 // io.sockets.on('connetion', function (socket) {

@@ -37,6 +37,15 @@
                     msg: data
                 });
             });
+            
+            $("#changeBtn").click(function () {
+                var data = $("#inp").val();
+                console.log(data);
+                socket.emit("sendGroupId", {
+                    msg: data
+                });
+
+            });
         });
 
         $(function () {
@@ -45,9 +54,25 @@
                 console.log(newclientId);
                 localStorage.setItem("clientId", JSON.stringify(newclientId));
                 var firebaseRef = firebase.database().ref();
-                firebaseRef.child("Client Id "+newclientId).set(newclientId);
+                firebaseRef.child("Client Id " + newclientId).set(newclientId);
+            });
+
+              socket.on("getGroupId", function (data) {
+                var newGroupId = data.msg;
+                console.log(newGroupId);
+                localStorage.setItem("groupId", newGroupId);
+               // localStorage.setItem("groupId", JSON.stringify(newclientId));
+               // var firebaseRef = firebase.database().ref();
+                //firebaseRef.child("Client Id " + newclientId).set(newclientId);
             });
         });
+
+
+
+
+
+
+
 
     </script>
 
@@ -75,5 +100,8 @@
 
 </body>
 <button type="text" id="getclinet" value="2" class="btn btn-primary">Clink ME </button>
+
+<input type="text" id="inp" placeholder="Enter group" />
+<button id="changeBtn" class="btn btn-info">Enter</button>
 
 </html>
