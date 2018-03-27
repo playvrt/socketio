@@ -15,19 +15,19 @@ navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mo
     var clients = [];
     var clientInfo = { 'clientId': 0 }
     // var firebaseRef = firebase.database().ref();
-    sk.on('imIn', function (data) {
+    // sk.on('imIn', function (data) {
 
 
-        clientInfo.clientId = clientCount + 1;
-        clientCount++;
-        console.log("sent back  " + clientInfo.clientId)
-        io.sockets.emit("getClinetId", clientInfo)
-        clients.push(clientInfo);
-        console.log(clients);
+    //     clientInfo.clientId = clientCount + 1;
+    //     clientCount++;
+    //     console.log("sent back  " + clientInfo.clientId)
+    //     io.sockets.emit("getClinetId", clientInfo)
+    //     clients.push(clientInfo);
+    //     console.log(clients);
        
-        // firebaseRef.child("Text").set("clientInfo.clientId");
-        // var data = fs.writeFileSync('./files/file',clientin)
-    })
+    //     // firebaseRef.child("Text").set("clientInfo.clientId");
+    //     // var data = fs.writeFileSync('./files/file',clientin)
+    // })
 
   
 

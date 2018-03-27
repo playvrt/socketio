@@ -11,10 +11,11 @@
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="js/app.js"></script>
-    <script src="app.js"></script>
+    <!-- <script src="js/app.js"></script> -->
+    <!-- <script src="app.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script>
+          var socket = io.connect('http://localhost:80');
         // Initialize Firebase
         var config = {
             apiKey: "AIzaSyBWOeAaM1W1X9b0WShkHKhxiUw9ecQPmtw",
@@ -26,6 +27,8 @@
         };
         firebase.initializeApp(config);
     </script>
+    
+
 
     <script>   
         $(function () {
@@ -49,12 +52,25 @@
         });
 
         $(function () {
+
+            socket.on("checkId", function(){
+                var clients = JSON.parse(localStorage.getItem("clientId"));
+                console.log(clients);
+                socket.emit("getResultId",clients);
+            });
+
+
+
+
             socket.on("getClinetId", function (data) {
-                var newclientId = data.clientId;
-                console.log(newclientId);
-                localStorage.setItem("clientId", JSON.stringify(newclientId));
-                var firebaseRef = firebase.database().ref();
-                firebaseRef.child("Client Id " + newclientId).set(newclientId);
+                // var newclientId = data.clientId;
+                // console.log(newclientId);
+                console.log(data);
+                localStorage.setItem("clientId",JSON.stringify(data));
+                // var cli = JSON.parse(data);
+                $("#result").html(data.cid);
+                // var firebaseRef = firebase.database().ref();
+                // firebaseRef.child("Client Id " + newclientId).set(newclientId);
             });
 
               socket.on("getGroupId", function (data) {
