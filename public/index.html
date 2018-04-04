@@ -15,15 +15,22 @@
 
     <script>
         $(function () {
+
+            // get command from app.js
             socket.on("serverCommand", function (msg2) {
                 // Check browser support
                 if (typeof (Storage) !== "undefined") {
+                    // get Group & Client ID
                     var client_id2 = localStorage.getItem("clientId");
                     var group_id2 = localStorage.getItem("groupId");
                     console.log("client id = "+client_id2);
                     console.log("group id = "+group_id2);
+
+                    // check group id
                     if (msg2.group_id == group_id2 || msg2.group_id == 0) {
+                        // check client id
                         if (msg2.client_id == client_id2 || msg2.client_id == 0) {
+
                             // Change Video Command
                             if (msg2.command == "changeVideo") {
                                 var vdoid = msg2.data;
@@ -71,7 +78,6 @@
                             }
                         }
                     }
-
                 } else {
                     document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
                 }
@@ -83,20 +89,17 @@
         });
 
     </script>
+
     <script>
         var socket = io.connect('http://localhost', { port: 8080 });
-
         socket.on('connect', function (data) {
             socket.emit('storeClientInfo', { customId: "000CustomIdHere0000" });
         });
         console.log(customId)
     </script>
-
-
 </head>
 
 <body>
-
     <div id="screen_panel">
 
         <!-- top -->

@@ -27,14 +27,12 @@
         };
         firebase.initializeApp(config);
     </script>
-    
-
 
     <script>   
         $(function () {
-            $("#getclinet").click(function () {
 
-                var data = $("#getclinet").val();
+            $("#getclient").click(function () {
+                var data = $("#getclient").val();
                 console.log(data);
                 socket.emit("imIn", {
                     msg: data
@@ -47,7 +45,6 @@
                 socket.emit("sendGroupId", {
                     msg: data
                 });
-
             });
         });
 
@@ -59,54 +56,32 @@
                 socket.emit("getResultId",clients);
             });
 
-
-
-
-            socket.on("getClinetId", function (data) {
-                // var newclientId = data.clientId;
-                // console.log(newclientId);
+            // get client id and store
+            socket.on("getClientId", function (data) {                
                 console.log(data);
                 localStorage.setItem("clientId",JSON.stringify(data));
-                // var cli = JSON.parse(data);
                 $("#result").html(data.cid);
-                // var firebaseRef = firebase.database().ref();
-                // firebaseRef.child("Client Id " + newclientId).set(newclientId);
             });
 
-              socket.on("getGroupId", function (data) {
+            // get group id
+            socket.on("getGroupId", function (data) {
                 var newGroupId = data.msg;
                 console.log(newGroupId);
                 localStorage.setItem("groupId", newGroupId);
                // localStorage.setItem("groupId", JSON.stringify(newclientId));
                // var firebaseRef = firebase.database().ref();
-                //firebaseRef.child("Client Id " + newclientId).set(newclientId);
+               //firebaseRef.child("Client Id " + newclientId).set(newclientId);
             });
         });
-
-
-
-
-
-
-
-
     </script>
-
-
-
-
 </head>
 
 <body>
-
     <div id="result"></div>
 
     <script>
         // Check browser support
         if (typeof (Storage) !== "undefined") {
-            // Store
-            // localStorage.setItem("lastname", "Smith");
-            // Retrieve
             document.getElementById("result").innerHTML = localStorage.getItem("clientId");
         } else {
             document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
@@ -115,8 +90,10 @@
 
 
 </body>
-<button type="text" id="getclinet" value="2" class="btn btn-primary">Clink ME </button>
 
+<button type="text" id="getclient" value="2" class="btn btn-primary">Click ME </button>
+
+<!-- assign group -->
 <input type="text" id="inp" placeholder="Enter group" />
 <button id="changeBtn" class="btn btn-info">Enter</button>
 

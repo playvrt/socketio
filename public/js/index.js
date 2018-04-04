@@ -6,6 +6,7 @@ function submitClick() {
   firebaseRef.child("Text").set("some value");
 }
 
+// Send change VDO command to app.js
 function sendChangeVidCommand() {
 
   var group = document.querySelector('.group:checked').value;
@@ -19,6 +20,7 @@ function sendChangeVidCommand() {
   console.log(msg2);
 }
 
+// Send change Template command to app.js
 function sendChangeTemCommand() {
   var group = document.querySelector('.group:checked').value;
   var client = document.querySelector('.client:checked').value;
