@@ -12,12 +12,12 @@ var clients = {};
 var clientInfo = { clientId: 0 };
 //  var firebaseRef = firebase.database().ref();
 
-io.sockets.on("connection", function(sk) {
+io.sockets.on("connection", function (sk) {
   // console.log(sk);
   sk.emit("broadcast", { msg: "Hi client!" });
- 
+
   // send command to index
-  sk.on("sendCommand", function(msg2) {    
+  sk.on("sendCommand", function (msg2) {
     console.log(msg2);
     io.sockets.emit("serverCommand", msg2);
   });
@@ -33,29 +33,35 @@ io.sockets.on("connection", function(sk) {
 
   sk.emit("checkId", "");
   var myClient = "";
-  var myData = "" ;
+  var myData = "";
 
   // get id from regis
-  sk.on("getResultId", function(data) {
+  sk.on("getResultId", function (data) {
     myData = data;
-    fs.readFile("file.txt", function(err,clients2) {
+    fs.readFile("file.txt", function (err, clients2) {
       console.log(clients2);
       // check existing data
-      if (myData == null ||clients2[myData.cid] == undefined) {
+      if (myData == null || clients2[myData.cid] == undefined) {
         clientInfo.clientId = clientCount + 1;
         clientCount++;
         console.log("sent back  " + clientInfo.clientId);
-        var cli = new ClientObj(clientCount, 0, "", sk.id);        
+        var cli = new ClientObj(clientCount, 0, "", sk.id);
         clients["" + clientCount] = cli;
         console.log(clients);
         sk.emit("getClientId", cli);
         fs.writeFile("file.txt", JSON.stringify(clients), err => {
           if (err) throw err;
-          console.log("The file has been saved!");          
+          console.log("The file has been saved!");
         });
       }
     });
   });
+  sk.on("groupId", function (data) {
+    console.log(data);
+    io.sockets.emit("getId", data);
+   
+  })
+
 });
 
 //   sk.on("sendGroupId", function(data) {
@@ -65,7 +71,7 @@ io.sockets.on("connection", function(sk) {
 // });
 
 var ip = require("ip");
-server.listen(80, function() {
+server.listen(80, function () {
   console.log(
     "Smart display start andd access on http: " + ip.address() + ":80!"
   );

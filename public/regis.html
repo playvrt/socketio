@@ -42,7 +42,7 @@
             $("#changeBtn").click(function () {
                 var data = $("#inp").val();
                 console.log(data);
-                socket.emit("sendGroupId", {
+                socket.emit("groupId", {
                     msg: data
                 });
             });
@@ -64,7 +64,10 @@
             });
 
             // get group id
-            socket.on("getGroupId", function (data) {
+
+
+            
+            socket.on("getId", function (data) {
                 var newGroupId = data.msg;
                 console.log(newGroupId);
                 localStorage.setItem("groupId", newGroupId);
