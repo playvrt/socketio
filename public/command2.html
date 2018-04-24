@@ -13,6 +13,46 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/app.js"></script>
     <script src="js/index.js"></script>
+    <script>
+
+        $(function dataaa() {
+
+
+
+
+            socket.on("checkId", function () {
+                socket.emit("getJson");
+                console.log("checkID");
+            });
+
+            socket.on("retriveJson", function (clients2) {
+                 count = Object.keys(JSON.parse(clients2)).length;
+               
+
+                console.log("data = " + count);
+                var i = 1;
+                var len = count+1;
+                console.log("len=" + len);
+                var text = "";
+
+                for (; i < len; i++) {
+                    text += '<input type="checkbox" class="group" name="group" id="group" value="' + i + '"> ' + i + '<br>';
+                }
+
+                document.getElementById("demo").innerHTML = text;
+            })
+
+
+
+            // setTimeout(function() {
+            //     afterDataaa();
+            // }, 3000);
+
+
+        });
+    </script>
+
+
 </head>
 
 <body>
@@ -25,21 +65,25 @@
                     <label for="group">Group</label>
                     <br>
                     <input type="checkbox" class="group" name="group" id="group" value="0" checked> All Group
-                    <br>                    
+                    <br>
                     <!-- test checkbox loop -->
                     <p id="demo"></p>
                     <script>
-                        var obj = itemLength();           
-                        var i = 1;
-                        var len = JSON.parse(obj).length;
-                        console.log("len="+len);
-                        var text = "";
-                    
-                        for (; i < len; i++) {                            
-                            text += '<input type="checkbox" class="group" name="group" id="group" value="'+i+'"> ' + i + '<br>';
-                        }
-                    
-                        document.getElementById("demo").innerHTML = text;
+
+                        // function afterDataaa() {
+                        //     var i = 1;
+                        //     var len = count;
+                        //     console.log("len=" + len);
+                        //     var text = "";
+
+                        //     for (; i < len; i++) {
+                        //         text += '<input type="checkbox" class="group" name="group" id="group" value="' + i + '"> ' + i + '<br>';
+                        //     }
+
+                        //     document.getElementById("demo").innerHTML = text;
+                        // }
+
+
                     </script>
                 </div>
 

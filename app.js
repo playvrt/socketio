@@ -56,12 +56,28 @@ io.sockets.on("connection", function (sk) {
       }
     });
   });
+
+  sk.on("getJson", function (data) {
+    myData = data;
+    fs.readFile("file.txt",'utf8',function (err, clients2) {
+      console.log("data + " +clients2);
+      // var count = Object.keys(clients2).length;
+      // console.log("size = "+ count);
+      sk.emit("retriveJson", clients2);
+      
+    });
+  });
+
+
+
+
   sk.on("groupId", function (data) {
     console.log(data);
     sk.emit("getId", data);
-    
-   
   })
+  
+
+
 
 });
 
