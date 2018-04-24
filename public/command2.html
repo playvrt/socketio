@@ -25,15 +25,22 @@
                     <label for="group">Group</label>
                     <br>
                     <input type="checkbox" class="group" name="group" id="group" value="0" checked> All Group
-                    <br>
-                    <input type="checkbox" class="group" name="group" id="group" value="1"> 1
-                    <br>
-                    <input type="checkbox" class="group" name="group" id="group" value="2"> 2
-                    <br>
-                    <input type="checkbox" class="group" name="group" id="group" value="3"> 3
-                    <br>
-                    <input type="checkbox" class="group" name="group" id="group" value="4"> 4
-                    <br>
+                    <br>                    
+                    <!-- test checkbox loop -->
+                    <p id="demo"></p>
+                    <script>
+                        var obj = itemLength();           
+                        var i = 1;
+                        var len = JSON.parse(obj).length;
+                        console.log("len="+len);
+                        var text = "";
+                    
+                        for (; i < len; i++) {                            
+                            text += '<input type="checkbox" class="group" name="group" id="group" value="'+i+'"> ' + i + '<br>';
+                        }
+                    
+                        document.getElementById("demo").innerHTML = text;
+                    </script>
                 </div>
 
                 <!-- // send video command -->
@@ -83,9 +90,6 @@
                 <button onclick="sendChangeTemCommand()" class="btn btn-danger">Change Template</button>
             </div>
         </div>
-
-
-
     </div>
 </body>
 

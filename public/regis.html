@@ -8,14 +8,24 @@
     <link rel="stylesheet" href="lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <!-- <script src="js/app.js"></script> -->
     <!-- <script src="app.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script>
-          var socket = io.connect('http://localhost:80');
+        var socket = io.connect('http://localhost:80');
         // Initialize Firebase
         var config = {
             apiKey: "AIzaSyBWOeAaM1W1X9b0WShkHKhxiUw9ecQPmtw",
@@ -38,7 +48,7 @@
                     msg: data
                 });
             });
-            
+
             $("#changeBtn").click(function () {
                 var data = $("#inp").val();
                 console.log(data);
@@ -50,54 +60,80 @@
 
         $(function () {
 
-            socket.on("checkId", function(){
+            socket.on("checkId", function () {
                 var clients = JSON.parse(localStorage.getItem("clientId"));
                 console.log(clients);
-                socket.emit("getResultId",clients);
+                socket.emit("getResultId", clients);
             });
 
             // get client id and store
-            socket.on("getClientId", function (data) {                
+            socket.on("getClientId", function (data) {
                 console.log(data);
-                localStorage.setItem("clientId",JSON.stringify(data));
+                localStorage.setItem("clientId", JSON.stringify(data));
                 $("#result").html(data.cid);
             });
 
-            // get group id
-
-
-            
+            // get group id            
             socket.on("getId", function (data) {
                 var newGroupId = data.msg;
                 console.log(newGroupId);
                 localStorage.setItem("groupId", newGroupId);
-               // localStorage.setItem("groupId", JSON.stringify(newclientId));
-               // var firebaseRef = firebase.database().ref();
-               //firebaseRef.child("Client Id " + newclientId).set(newclientId);
+                // localStorage.setItem("groupId", JSON.stringify(newclientId));
+                // var firebaseRef = firebase.database().ref();
+                //firebaseRef.child("Client Id " + newclientId).set(newclientId);
             });
         });
     </script>
 </head>
 
-<body>
-    <div id="result"></div>
-
+<body class="text-center">
     <script>
         // Check browser support
         if (typeof (Storage) !== "undefined") {
-            document.getElementById("result").innerHTML = localStorage.getItem("clientId");
+            var obj2 = JSON.parse(localStorage.getItem("clientId")).cid;
+            document.getElementById("result").innerHTML = obj2;
         } else {
             document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
         }
     </script>
+    <form class="form-signin">
+        <img class="mb-4" src="images/scr_logo.jpg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">screen
+            <div id="result"></div>
+        </h1>
+        <label for="inputGroup" class="sr-only">Enter Group</label>
+        <input type="text" id="inp" class="form-control" placeholder="Group no." required="" autofocus="">
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="button" data-toggle="modal" data-target="#exampleModalCenter">Enter</button>
+        <!-- <p class="mt-5 mb-3 text-muted">© 2017-2018</p> -->
+    </form>
 
-
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to add this screen to group?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="changeBtn">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
-<button type="text" id="getclient" value="2" class="btn btn-primary">Click ME </button>
+<!-- <button type="text" id="getclient" value="2" class="btn btn-primary">Click ME </button> -->
 
 <!-- assign group -->
-<input type="text" id="inp" placeholder="Enter group" />
-<button id="changeBtn" class="btn btn-info">Enter</button>
+<!-- <input type="text" id="inp" placeholder="Enter group" />
+<button id="changeBtn" class="btn btn-info">Enter</button> -->
 
 </html>

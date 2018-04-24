@@ -58,7 +58,8 @@ io.sockets.on("connection", function (sk) {
   });
   sk.on("groupId", function (data) {
     console.log(data);
-    io.sockets.emit("getId", data);
+    sk.emit("getId", data);
+    
    
   })
 
@@ -78,4 +79,21 @@ server.listen(80, function () {
 });
 function newFunction() {
   return "changeT";
+}
+
+function itemLength(){
+  var obj;
+  fs.readFile('file.txt',function read(err, data) {
+      if (err) {
+          throw err;
+      }
+      obj = data;
+  }) 
+  
+  console.log("this obj = "+obj);
+  processFile();  
+}
+function processFile() {
+  console.log("from processFile content = " + obj);
+return obj;
 }
