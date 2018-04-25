@@ -14,6 +14,37 @@
     <script src="js/app.js"></script>
     <script src="js/index.js"></script>
     <script>
+        // get command from app.js
+        socket.on("serverCommand", function (msg2) {
+            // Check browser support
+            if (typeof (Storage) !== "undefined") {
+                // get Group & Client ID
+                var client_id2 = JSON.parse(localStorage.getItem("clientId")).cid;
+                var group_id2 = localStorage.getItem("groupId");
+                console.log("client id = " + client_id2);
+                console.log("group id = " + group_id2);
+
+                // check group id
+                if (msg2.group_id == group_id2 || msg2.group_id == 0) {
+                    // check client id
+                    if (msg2.client_id == client_id2 || msg2.client_id == 0) {
+                        //asking cuurentVid
+                        if (msg2.command == "checkUrl") {
+                            var group = document.querySelector('.group:checked').value;;
+                            var client = i;
+                            var command = "checkUrl";
+                            var data = "";
+                            var msg2 = { group_id: group, client_id: client, command: command, data: data };
+                            var url = localStorage.getItem("Link");
+                            console.log("from checking current url = " + url);
+                        }
+
+                    }
+                }
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+        });
 
         $(function dataaa() {
             socket.on("checkId", function () {
@@ -32,12 +63,15 @@
                 var text = "";
 
                 for (; i < len; i++) {
+                    
+                 
                     text += '<input type="checkbox" class="client" name="client" id="client" value="' + i + '"> ' + i + '<br>';
                 }
 
                 document.getElementById("cliloop").innerHTML = text;
             })
         });
+
     </script>
 </head>
 
@@ -56,9 +90,10 @@
                     <p id="gloop"></p>
                     <script>
                         var i = 1;
-                        var len = 3 + 1 ;                        
+                        var len = 3 + 1;
                         var text = "";
                         for (; i < len; i++) {
+
                             text += '<input type="checkbox" class="group" name="group" id="group" value="' + i + '"> ' + i + '<br>';
                         }
                         document.getElementById("gloop").innerHTML = text;
@@ -74,6 +109,15 @@
                     </div>
                 </form>
                 <button onclick="sendChangeVidCommand()" class="btn btn-primary">Change Video</button>
+                <br>
+                <br>
+                <button onclick="sendChangeVidCommand2()" value="BZsXcc_tC-o" id="Vid" class="btn btn-primary">Sad song</button>
+                <br>
+                <br>
+                <button onclick="sendChangeVidCommand3()" value="817P8W8-mGE" id="Vid2" class="btn btn-primary">Pop Love</button>
+                <br>
+                <br>
+                <button onclick="sendChangeVidCommand4()" value="SR6iYWJxHqs" id="Vid3" class="btn btn-primary">Granade</button>
             </div>
 
             <div class="right">
@@ -84,7 +128,7 @@
                     <br>
                     <input type="checkbox" class="client" name="client" id="client" value="0" checked> All Screen
                     <br>
-                    
+
                     <!-- client loop -->
                     <p id="cliloop"></p>
                 </div>

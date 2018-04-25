@@ -56,15 +56,20 @@ io.sockets.on("connection", function (sk) {
       }
     });
   });
+  sk.on("writeCurOnFile", function (msg2) {
+    var cli = new ClientObj(clientCount, 0, "", sk.id);
+    console.log("cur ready")
+
+  })
 
   sk.on("getJson", function (data) {
     myData = data;
-    fs.readFile("file.txt",'utf8',function (err, clients2) {
-      console.log("data + " +clients2);
+    fs.readFile("file.txt", 'utf8', function (err, clients2) {
+      console.log("data + " + clients2);
       // var count = Object.keys(clients2).length;
       // console.log("size = "+ count);
       sk.emit("retriveJson", clients2);
-      
+
     });
   });
 
@@ -85,20 +90,20 @@ function newFunction() {
   return "changeT";
 }
 
-function itemLength(){
+function itemLength() {
   var obj;
-  fs.readFile('file.txt',function read(err, data) {
-      if (err) {
-          throw err;
-      }
-      obj = data;
-  }) 
-  
-  console.log("this obj = "+obj);
-  processFile();  
+  fs.readFile('file.txt', function read(err, data) {
+    if (err) {
+      throw err;
+    }
+    obj = data;
+  })
+
+  console.log("this obj = " + obj);
+  processFile();
 }
 
 function processFile() {
   console.log("from processFile content = " + obj);
-return obj;
+  return obj;
 }

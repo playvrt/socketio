@@ -1,1 +1,1 @@
-{"1":{"cid":1,"gid":0,"cur":"","sk":"t8lTY8drLQbV85QQAAAN"},"2":{"cid":2,"gid":0,"cur":"","sk":"vaRAie0G-gVaHjfiAAAS"}}
+{"1":{"cid":1,"gid":0,"cur":"","sk":"U4m7KYhae6qwGImgAAAA"}}

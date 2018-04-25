@@ -23,8 +23,8 @@
                     // get Group & Client ID
                     var client_id2 = JSON.parse(localStorage.getItem("clientId")).cid;
                     var group_id2 = localStorage.getItem("groupId");
-                    console.log("client id = "+client_id2);
-                    console.log("group id = "+group_id2);
+                    console.log("client id = " + client_id2);
+                    console.log("group id = " + group_id2);
 
                     // check group id
                     if (msg2.group_id == group_id2 || msg2.group_id == 0) {
@@ -36,7 +36,19 @@
                                 var vdoid = msg2.data;
                                 var vdourl = "https://www.youtube.com/embed/";
                                 vdourl += vdoid + "?autoplay=1&loop=1";
+                                var vdoLink = vdourl += vdoid;
+                                localStorage.setItem("Link", vdoLink);
+
+                                var group = localStorage.getItem("groupId");
+                                var client = JSON.parse(localStorage.getItem("clientId")).cid;
+                                var command = "setCur";
+                                var data = vdoLink;
+                                var msg2 = { group_id: group, client_id: client, command: command, data: data };
+                                console.log("msg from setCur = " + msg2);
+                                socket.emit("writeCurOnFile", msg2)
+
                                 $("#youplay").attr("src", vdourl);
+                                
                             }
 
                             // Change template Command

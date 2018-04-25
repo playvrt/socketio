@@ -9,13 +9,13 @@ function submitClick() {
 function sendChangeVidCommand() {
 
   var group = document.querySelector('.group:checked').value;
-  var client = document.querySelector('.client:checked').value; 
+  var client = document.querySelector('.client:checked').value;
   var command = document.getElementById("vidForm").elements.item(0).value;
   var data = document.getElementById("vidForm").elements.item(1).value;
   var msg2 = { group_id: group, client_id: client, command: command, data: data };
 
   socket.emit("sendCommand", msg2);
-  console.log(msg2);
+  console.log("From sendChangeVidCommand " + msg2);
 }
 // Send change Template command to app.js
 function sendChangeTemCommand() {
@@ -25,5 +25,40 @@ function sendChangeTemCommand() {
   var data = document.getElementById("temForm").elements.item(1).value;
   var msg2 = { group_id: group, client_id: client, command: command, data: data };
   socket.emit("sendCommand", msg2);
-  console.log(msg2);
+  console.log("From sendChangeTemCommand " + msg2);
 }
+
+function sendChangeVidCommand3() {
+
+  var group = document.querySelector('.group:checked').value;
+  var client = document.querySelector('.client:checked').value;
+  var command = document.getElementById("vidForm").elements.item(0).value;
+  var data = $("#Vid2").val();
+  var msg2 = { group_id: group, client_id: client, command: command, data: data };
+
+  socket.emit("sendCommand", msg2);
+  console.log("From sendChangeVidCommand " + msg2);
+}
+function sendChangeVidCommand2() {
+
+  var group = document.querySelector('.group:checked').value;
+  var client = document.querySelector('.client:checked').value;
+  var command = document.getElementById("vidForm").elements.item(0).value;
+  var data = $("#Vid").val();
+  var msg2 = { group_id: group, client_id: client, command: command, data: data };
+
+  socket.emit("sendCommand", msg2);
+  console.log("From sendChangeVidCommand " + msg2);
+}
+function sendChangeVidCommand4() {
+
+  var group = document.querySelector('.group:checked').value;
+  var client = document.querySelector('.client:checked').value;
+  var command = document.getElementById("vidForm").elements.item(0).value;
+  var data = $("#Vid3").val();
+  var msg2 = { group_id: group, client_id: client, command: command, data: data };
+
+  socket.emit("sendCommand", msg2);
+  console.log("From sendChangeVidCommand " + msg2);
+}
+
