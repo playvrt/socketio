@@ -222,3 +222,7 @@ div {
 #g_img {
   width: 80%;
 }
+
+#new_font {
+  font-family: 'Ubuntu', sans-serif;
+}
