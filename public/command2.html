@@ -16,43 +16,29 @@
     <script>
 
         $(function dataaa() {
-
-
-
-
             socket.on("checkId", function () {
                 socket.emit("getJson");
                 console.log("checkID");
             });
 
+            // get client length
             socket.on("retriveJson", function (clients2) {
-                 count = Object.keys(JSON.parse(clients2)).length;
-               
+                count = Object.keys(JSON.parse(clients2)).length;
 
                 console.log("data = " + count);
                 var i = 1;
-                var len = count+1;
+                var len = count + 1;
                 console.log("len=" + len);
                 var text = "";
 
                 for (; i < len; i++) {
-                    text += '<input type="checkbox" class="group" name="group" id="group" value="' + i + '"> ' + i + '<br>';
+                    text += '<input type="checkbox" class="client" name="client" id="client" value="' + i + '"> ' + i + '<br>';
                 }
 
-                document.getElementById("demo").innerHTML = text;
+                document.getElementById("cliloop").innerHTML = text;
             })
-
-
-
-            // setTimeout(function() {
-            //     afterDataaa();
-            // }, 3000);
-
-
         });
     </script>
-
-
 </head>
 
 <body>
@@ -67,23 +53,15 @@
                     <input type="checkbox" class="group" name="group" id="group" value="0" checked> All Group
                     <br>
                     <!-- test checkbox loop -->
-                    <p id="demo"></p>
+                    <p id="gloop"></p>
                     <script>
-
-                        // function afterDataaa() {
-                        //     var i = 1;
-                        //     var len = count;
-                        //     console.log("len=" + len);
-                        //     var text = "";
-
-                        //     for (; i < len; i++) {
-                        //         text += '<input type="checkbox" class="group" name="group" id="group" value="' + i + '"> ' + i + '<br>';
-                        //     }
-
-                        //     document.getElementById("demo").innerHTML = text;
-                        // }
-
-
+                        var i = 1;
+                        var len = 3 + 1 ;                        
+                        var text = "";
+                        for (; i < len; i++) {
+                            text += '<input type="checkbox" class="group" name="group" id="group" value="' + i + '"> ' + i + '<br>';
+                        }
+                        document.getElementById("gloop").innerHTML = text;
                     </script>
                 </div>
 
@@ -95,7 +73,7 @@
                         <input class="form-control" type="text" id="data" placeholder="Enter VDO code">
                     </div>
                 </form>
-                <button onclick="sendChangeVidCommand()" class="btn btn-danger">Change Video</button>
+                <button onclick="sendChangeVidCommand()" class="btn btn-primary">Change Video</button>
             </div>
 
             <div class="right">
@@ -106,14 +84,9 @@
                     <br>
                     <input type="checkbox" class="client" name="client" id="client" value="0" checked> All Screen
                     <br>
-                    <input type="checkbox" class="client" name="client" id="client" value="1"> 1
-                    <br>
-                    <input type="checkbox" class="client" name="client" id="client" value="2"> 2
-                    <br>
-                    <input type="checkbox" class="client" name="client" id="client" value="3"> 3
-                    <br>
-                    <input type="checkbox" class="client" name="client" id="client" value="4"> 4
-                    <br>
+                    
+                    <!-- client loop -->
+                    <p id="cliloop"></p>
                 </div>
 
                 <!-- //send template command -->
@@ -131,7 +104,7 @@
                         </select>
                     </div>
                 </form>
-                <button onclick="sendChangeTemCommand()" class="btn btn-danger">Change Template</button>
+                <button onclick="sendChangeTemCommand()" class="btn btn-primary">Change Template</button>
             </div>
         </div>
     </div>

@@ -21,7 +21,7 @@
                 // Check browser support
                 if (typeof (Storage) !== "undefined") {
                     // get Group & Client ID
-                    var client_id2 = localStorage.getItem("clientId");
+                    var client_id2 = JSON.parse(localStorage.getItem("clientId")).cid;
                     var group_id2 = localStorage.getItem("groupId");
                     console.log("client id = "+client_id2);
                     console.log("group id = "+group_id2);

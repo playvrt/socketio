@@ -68,24 +68,11 @@ io.sockets.on("connection", function (sk) {
     });
   });
 
-
-
-
   sk.on("groupId", function (data) {
     console.log(data);
     sk.emit("getId", data);
   })
-  
-
-
-
 });
-
-//   sk.on("sendGroupId", function(data) {
-//     console.log("Change Group : " + data.msg);
-//     io.socket.emit("getGroupId", data);
-//   });
-// });
 
 var ip = require("ip");
 server.listen(80, function () {
@@ -93,6 +80,7 @@ server.listen(80, function () {
     "Smart display start andd access on http: " + ip.address() + ":80!"
   );
 });
+
 function newFunction() {
   return "changeT";
 }
@@ -109,6 +97,7 @@ function itemLength(){
   console.log("this obj = "+obj);
   processFile();  
 }
+
 function processFile() {
   console.log("from processFile content = " + obj);
 return obj;
