@@ -30,7 +30,6 @@ io.sockets.on("connection", function (sk) {
     this.sk = sck;
   }
 
-
   sk.emit("checkId", "");
   var myClient = "";
   var myData = "";
@@ -56,10 +55,10 @@ io.sockets.on("connection", function (sk) {
       }
     });
   });
+
   sk.on("writeCurOnFile", function (msg2) {
     var cli = new ClientObj(clientCount, 0, "", sk.id);
     console.log("cur ready")
-
   })
 
   sk.on("getJson", function (data) {
@@ -69,7 +68,6 @@ io.sockets.on("connection", function (sk) {
       // var count = Object.keys(clients2).length;
       // console.log("size = "+ count);
       sk.emit("retriveJson", clients2);
-
     });
   });
 

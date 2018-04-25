@@ -55,7 +55,6 @@
             // get client length
             socket.on("retriveJson", function (clients2) {
                 count = Object.keys(JSON.parse(clients2)).length;
-
                 console.log("data = " + count);
                 var i = 1;
                 var len = count + 1;
@@ -63,11 +62,8 @@
                 var text = "";
 
                 for (; i < len; i++) {
-                    
-                 
                     text += '<input type="checkbox" class="client" name="client" id="client" value="' + i + '"> ' + i + '<br>';
                 }
-
                 document.getElementById("cliloop").innerHTML = text;
             })
         });
@@ -86,18 +82,12 @@
                     <br>
                     <input type="checkbox" class="group" name="group" id="group" value="0" checked> All Group
                     <br>
-                    <!-- test checkbox loop -->
-                    <p id="gloop"></p>
-                    <script>
-                        var i = 1;
-                        var len = 3 + 1;
-                        var text = "";
-                        for (; i < len; i++) {
-
-                            text += '<input type="checkbox" class="group" name="group" id="group" value="' + i + '"> ' + i + '<br>';
-                        }
-                        document.getElementById("gloop").innerHTML = text;
-                    </script>
+                    <input type="checkbox" class="group" name="group" id="group" value="1"> School of IT
+                    <br>
+                    <input type="checkbox" class="group" name="group" id="group" value="2"> M-Square
+                    <br>
+                    <input type="checkbox" class="group" name="group" id="group" value="3"> D1 Cafetaria
+                    <br>
                 </div>
 
                 <!-- // send video command -->
@@ -111,6 +101,7 @@
                 <button onclick="sendChangeVidCommand()" class="btn btn-primary">Change Video</button>
                 <br>
                 <br>
+                <!-- playlist -->
                 <button onclick="sendChangeVidCommand2()" value="BZsXcc_tC-o" id="Vid" class="btn btn-primary">Sad song</button>
                 <br>
                 <br>
@@ -121,8 +112,7 @@
             </div>
 
             <div class="right">
-
-                <!-- send group id  -->
+                <!-- send client id  -->
                 <div style="margin: 10px">
                     <label for="client">Screen</label>
                     <br>
@@ -138,17 +128,16 @@
                     <div class="form-group">
                         <label for="templateId">Template</label>
                         <input type="hidden" name="command" id="command" value="changeTemplate">
-                        <select id="data" class="form-control">
-                            <option value="1">Default (landscape)</option>
-                            <option value="2">Template 1 (landscape)</option>
-                            <option value="3">Template 2 (landscape)</option>
-                            <option value="4">Template 3 (landscape)</option>
-                            <option value="">Template 4 (portrait)</option>
-                            <option value="">Template 5 (portrait)</option>
-                        </select>
                     </div>
                 </form>
-                <button onclick="sendChangeTemCommand()" class="btn btn-primary">Change Template</button>
+
+                <!-- template list -->
+                <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action" id="tem1" value="1" onclick="sendChangeTemCommand()"><img src="images/temdef.png" width="150" height="90"/>&nbsp;&nbsp;Default (landscape)</button>
+                    <button type="button" class="list-group-item list-group-item-action" id="tem2" value="2" onclick="sendChangeTemCommand2()"><img src="images/tem1.png" width="150" height="90"/>&nbsp;&nbsp;Template 1 (landscape)</button>
+                    <button type="button" class="list-group-item list-group-item-action" id="tem3" value="3" onclick="sendChangeTemCommand3()"><img src="images/tem2.png" width="150" height="90"/>&nbsp;&nbsp;Template 2 (landscape)</button>
+                    <button type="button" class="list-group-item list-group-item-action" id="tem4" value="4" onclick="sendChangeTemCommand4()"><img src="images/tem3.png" width="150" height="90"/>&nbsp;&nbsp;Template 3 (landscape)</button>
+                </div>
             </div>
         </div>
     </div>

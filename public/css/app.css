@@ -208,3 +208,17 @@ div {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+/* guide panel in regis */
+#gguide_panel {
+  position: fixed;
+  display: block;
+
+  top: 5%;
+  right: 5px;
+  width: 15%;
+  z-index: 10;
+}
+#g_img {
+  width: 80%;
+}
